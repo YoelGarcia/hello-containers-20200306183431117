@@ -1,0 +1,322 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-image: url('./img/fondo2.jpg');
+                /* Full height */
+                height: 100%;
+                width: 100%;
+                /* Center and scale the image nicely */
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-attachment: fixed;
+            }
+                a {    
+            font-family: verdana, arial, sans-serif;
+            font-size: 10pt;
+            font-weight: bold;
+            padding: 4px;
+            background-color: #ffffff;
+            color: #666666;
+            text-decoration: none;
+        }
+        a:link, a:visited {
+            border-top: 1px solid #666666;
+            border-bottom: 2px solid #cccccc;
+            border-left: 1px solid #666666;
+            border-right: 2px solid #cccccc;
+        }
+        a:hover {
+            border-bottom: 1px solid #666666;
+            border-top: 2px solid #cccccc;
+            border-right: 1px solid #666666;
+            border-left: 2px solid #cccccc;
+            background-color: #666666;
+            color: #cccccc;
+        }
+
+        .button {    
+            font-family: verdana, arial, sans-serif;
+            font-size: 10pt;
+            font-weight: bold;
+            padding: 4px;
+            background-color: #ffffff;
+            color: #666666;
+            text-decoration: none;
+        }
+        .button:link, .button:visited {
+            border-top: 1px solid #666666;
+            border-bottom: 2px solid #cccccc;
+            border-left: 1px solid #666666;
+            border-right: 2px solid #cccccc;
+        }
+        .button:hover {
+            border-bottom: 1px solid #666666;
+            border-top: 2px solid #cccccc;
+            border-right: 1px solid #666666;
+            border-left: 2px solid #cccccc;
+            background-color: #666666;
+            color: #cccccc;
+        }
+        </style>
+        <title>IBM CONECTA 2020</title>
+        <script>
+            function miFuncion(){
+                console.log("Se dio click en el botton");
+                
+                var nombre = document.getElementById('nombre').value;
+                var telefono = document.getElementById('telefono').value;
+                var email = document.getElementById('email').value;
+                
+                var parecerEvento = document.getElementById('evento');
+                var selectedEvento = parecerEvento.options[parecerEvento.selectedIndex].text;
+                
+                var parecerSesion = document.getElementById('sesion');
+                var selectedSesion = parecerSesion.options[parecerSesion.selectedIndex].text;
+
+                var conocerNube = document.getElementById('nube');
+                var selectedNube = conocerNube.options[conocerNube.selectedIndex].text;
+
+                var aplicacionesContenerizadas = document.getElementById('aplicaciones');
+                var selectedAplicaciones = aplicacionesContenerizadas.options[aplicacionesContenerizadas.selectedIndex].text;
+
+                var ayudarModernizar = document.getElementById('modernizar');
+                var selectedModernizar = ayudarModernizar.options[ayudarModernizar.selectedIndex].text;
+
+                var plataformaContenedores = document.getElementById('plataforma').value;
+
+                var ayudaContacto = document.getElementById('ayuda');
+                var selectedAyuda = ayudaContacto.options[ayudaContacto.selectedIndex].text;
+                
+                var promosIbm = document.getElementById('promos');
+                var selectedPromos = promosIbm.options[promosIbm.selectedIndex].text;
+
+                var http = new XMLHttpRequest();
+                var url = "localhost";
+                //var email = document.getElementById('email');
+                //var password = document.getElementById('pass');
+                http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                http.open("POST", url, true);
+
+                http.onreadystatechange = function() {
+                    if(http.readyState == 4 && http.status == 200) { 
+                    //aqui obtienes la respuesta de tu peticion
+                    alert(http.responseText);
+                    }
+                }
+                http.send(JSON.stringify({nombre:nombre, 
+                                        password: password,
+                                        }));
+
+                console.log(selectedEvento);
+            }
+        </script>
+    </head>
+    <body>
+         <div align="center">
+        <table width="652" cellspacing="0" cellpadding="0" border="0">
+            <tr>
+              <td style='vertical-align:middle'><img src="./img/logocloud.png" alt="IBM Cloud" width="80"> </td>
+              <td valign="center"><h1><strong><font color="white">Cloud Conecta 2020</font></strong></h1></td>
+            </tr>
+            <!--<tr>
+              <td colspan="5" width="625">
+                <p><font color="white">Encuesta de Feedback</font>
+				        </p>
+              </td>
+            </tr>-->
+        </table>
+      </div>
+      <div align="center">
+        <table width="652" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+              <p><font color="white"><h2>Encuesta de Feedback</h2></font>
+              </p>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <p></p>
+      </div>
+      <div align="center">
+        <table width="400" cellspacing="0" cellpadding="0" border="0">
+            <tr>
+              <td>
+                <p class="MsoNormal" style="text-align:right" align="right">
+                <span style="color:white;">¿Que te esta pareciendo el evento?</span>
+                </p>
+              </td>
+              <td>
+          <!--<p style="text-align:justify"><input value="1000000" id="monto" type="float"></p>-->
+              <select id="evento">
+                <option value="excelente">Excelente</option>
+                <option value="bien">Bien</option>
+                <option value="regular">Regular</option>
+                <option value="malo">Malo</option>
+              </select>
+              </td>
+            </tr>
+            <tr>
+              <td><p><br/></p></td>
+            </tr>
+            <tr>
+              <td>
+                <p align="right"><span style="color:white;">¿Que te parece la sesion?</span></p>
+              </td>
+              <td >
+                <!--<p style="text-align:justify"><input value="180" id="duracion" type="float"</p>-->
+                <select id="sesion">
+                  <option value="excelente">Excelente</option>
+                  <option value="bien">Bien</option>
+                  <option value="regular">Regular</option>
+                  <option value="malo">Malo</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><p><br/></p></td>
+            </tr>
+            <tr>
+              <td style="padding:0in 1pt 0in 5.4pt">
+                <p align="right"><span style="color:white;">¿Conocias la nube de IBM?</span></p>
+              </td>
+              <td>
+                <!--<p style="text-align:justify"><input value="14" id="tasa" type="float"</p>-->
+                <select id="nube">
+                  <option value="si">Si</option>
+                  <option value="no">No</option>
+                </select>
+              </td>
+          </tr>
+         <tr>
+             <td><p><br/></p></td>
+          </tr>
+          <!--Aqui se agregaron las demas preguntas-->
+          <tr>
+            <td style="padding:0in 1pt 0in 5.4pt">
+              <p align="right"><span style="color:white;">¿Tienes aplicaciones contenerizadas?</span></p>
+            </td>
+            <td>
+              <!--<p style="text-align:justify"><input value="14" id="tasa" type="float"</p>-->
+              <select id="aplicaciones">
+                <option value="si">Si</option>
+                <option value="no">No</option>
+              </select>
+            </td>
+        </tr>
+        <tr>
+          <td><p><br/></p></td>
+        </tr>
+        <tr>
+          <td style="padding:0in 1pt 0in 5.4pt">
+            <p align="right"><span style="color:white;">¿Necesitas ayuda para modernizar tus aplicaciones?</span></p>
+          </td>
+          <td>
+            <!--<p style="text-align:justify"><input value="14" id="tasa" type="float"</p>-->
+            <select id="modernizar">
+              <option value="si">Si</option>
+              <option value="no">No</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><p><br/></p></td>
+        </tr>
+        <tr>
+          <td style="padding:0in 1pt 0in 5.4pt">
+            <p align="right"><span style="color:white;">¿Cual es tu plataforma de orquestacion de contenedores?</span></p>
+          </td>
+          <td>
+            <p style="text-align:justify"><input value="" id="plataforma" type="text"</p>
+          </td>
+        </tr>
+        <tr>
+          <td><p><br/></p></td>
+        </tr>
+        <tr>
+          <td style="padding:0in 1pt 0in 5.4pt">
+            <p align="right"><span style="color:white;">¿Necesitas que te contactemos para ayudarte?</span></p>
+          </td>
+          <td>
+            <!--<p style="text-align:justify"><input value="14" id="tasa" type="float"</p>-->
+            <select id="ayuda">
+              <option value="si">Si</option>
+              <option value="no">No</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><p><br/></p></td>
+        </tr>
+        <tr>
+          <td style="padding:0in 1pt 0in 5.4pt">
+            <p align="right"><span style="color:white;">¿Conoces las promos de IBM?</span></p>
+          </td>
+          <td>
+            <!--<p style="text-align:justify"><input value="14" id="tasa" type="float"</p>-->
+            <select id="promos">
+              <option value="si">Si</option>
+              <option value="no">No</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><p><br/></p></td>
+        </tr>
+        </table>
+        <table>
+        <tr>
+          <td style="padding:0in 1pt 0in 5.4pt">
+            <p align="right"><span style="color:white;">Email:</span></p>
+          </td>
+          <td>
+            <p style="text-align:justify"><input value="" id="email" type="text"</p>
+          </td>
+        </tr>
+        <tr>
+          <td><p><br/></p></td>
+        </tr>
+        <tr>
+          <td style="padding:0in 1pt 0in 5.4pt">
+            <p align="right"><span style="color:white;">Nombre</span></p>
+          </td>
+          <td>
+            <p style="text-align:justify"><input value="" id="nombre" type="text"></p>
+          </td>
+        </tr>
+        <tr>
+          <td><p><br/></p></td>
+        </tr>
+        <tr>
+          <td style="padding:0in 1pt 0in 5.4pt">
+            <p align="right"><span style="color:white;">Telefono</span></p>
+          </td>
+          <td>
+            <p style="text-align:justify"><input value="" id="telefono" type="text"</p>
+          </td>
+        </tr>
+      <!--<tr><td> <br></tr>-->
+      <tr><td> <br></tr>
+      <tr>
+          <td><br></td>
+            <td align="center"><input type="button" class="button" onclick="miFuncion()" value="Enviar"></td><br>
+      </tr>
+      <tr><td><br></td></tr>
+        <tr>
+          <td> <!--<p align="right"> <input value="Contactos" id="descargar" type="button" href="img/ibm.png" download="contactos.png"> </p>-->
+            <p align="right"><a href="./img/contactos.png" download="contactos.png" class="enlanceboton">Contactos</a></p>
+          </td>
+          <td></td>
+          <td>
+            <!--<p class="MsoNormal" style="text-align:justify"><input value="Promociones" id="promociones" type="button"></span></p>-->
+            <p><a href="./img/promociones-ibm.jpg" download="promociones-ibm.png" class="enlanceboton">Promociones</a></p>
+          </td>
+        </tr>
+        </table>
+        <br>
+      </div>
+      <!--<p class="MsoNormal"><span style="mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>-->
+    </div>
+    </body>
+</html>
