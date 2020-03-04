@@ -1,4 +1,5 @@
 const { Pool } = require('pg');
+var port = require('../app.js');
 
 const pool = new Pool ({
     host: 'dc512cab-9b0b-4c5e-aa14-93ced28a5699.bn2a2uid0up8mv7mv2ig.databases.appdomain.cloud',
@@ -12,7 +13,11 @@ const pool = new Pool ({
 const getUsers = async(req, res) => {
     //const response = await pool.query('SELECT * FROM feedback')
     //console.log(response.rows);
-    res.render('../views/layouts/default.hbs');
+    console.log('El puerto es: ' + port.Puerto);
+    const puerto = port.Puerto;
+    res.render('../views/layouts/default.hbs', {
+        puerto: puerto
+    });
 }
 
 const createFeedback = async(req, res) => {

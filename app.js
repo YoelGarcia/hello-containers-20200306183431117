@@ -24,19 +24,11 @@ app.use(express.static('public'))
 //routes
 app.use(require('./routes/index'));
 
-/*app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-    res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
-    next();
-});*/
-/*app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", ""); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });*/
+const port = process.env.PORT || process.env.VCAP_APP_PORT || 3000;
 
 
-app.listen(3000);
+app.listen(port);
+console.log('' + port);
 console.log("Servidor corriendo");
+
+exports.Puerto = '' + port;

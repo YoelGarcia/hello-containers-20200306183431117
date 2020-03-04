@@ -60,7 +60,7 @@
             color: #cccccc;
         }
         </style>
-        <title>IBM CONECTA 2020</title>
+        <title>IBM CONECTA 2020 </title>
         <script>
             function miFuncion(){
                 console.log("Se dio click en el botton");
@@ -99,8 +99,12 @@
                 var selectedPromos = promosIbm.options[promosIbm.selectedIndex].text;
                 promosIbm = selectedPromos;
 
+                var puerto = {{ puerto }};
+                console.log(puerto);
+
                 var http = new XMLHttpRequest();
-                var url = "http://50.23.1.37:3000";
+                var url = "http://50.23.1.37:" + puerto;
+                console.log(url);
                 //var email = document.getElementById('email');
                 //var password = document.getElementById('pass');
                 http.open("POST", url, true);
