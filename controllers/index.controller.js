@@ -10,8 +10,8 @@ const pool = new Pool ({
 })
 
 const getUsers = async(req, res) => {
-    const response = await pool.query('SELECT * FROM feedback')
-    console.log(response.rows);
+    //const response = await pool.query('SELECT * FROM feedback')
+    //console.log(response.rows);
     res.render('../views/layouts/default.hbs');
 }
 
@@ -19,11 +19,11 @@ const createFeedback = async(req, res) => {
     console.log(req.body);
     const { nombre, telefono, email, parecerEvento,
             parecerSesion, conocerNube, aplicacionesContenerizadas,
-            ayudaModernizar, plataformaContenedores, ayudaContacto, promosIbm } = req.body;
+            ayudarModernizar, plataformaContenedores, ayudaContacto, promosIbm } = req.body;
     const response = await pool.query('INSERT INTO feedback (nombre, telefono, email, parecerEvento, parecerSesion, conocerNube, \
         aplicacionesContenerizadas, ayudarModernizar, plataformaContenedores, ayudaContacto, promosIbm ) \
         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)', [
-        nombre, telefono, email, parecerEvento, parecerSesion, conocerNube, aplicacionesContenerizadas, ayudaModernizar,
+        nombre, telefono, email, parecerEvento, parecerSesion, conocerNube, aplicacionesContenerizadas, ayudarModernizar,
         plataformaContenedores, ayudaContacto, promosIbm
     ]);
     console.log(response);

@@ -64,40 +64,48 @@
         <script>
             function miFuncion(){
                 console.log("Se dio click en el botton");
-                
+
                 var nombre = document.getElementById('nombre').value;
                 var telefono = document.getElementById('telefono').value;
                 var email = document.getElementById('email').value;
                 
                 var parecerEvento = document.getElementById('evento');
                 var selectedEvento = parecerEvento.options[parecerEvento.selectedIndex].text;
+                parecerEvento = selectedEvento;
                 
                 var parecerSesion = document.getElementById('sesion');
                 var selectedSesion = parecerSesion.options[parecerSesion.selectedIndex].text;
+                parecerSesion = selectedSesion;
 
                 var conocerNube = document.getElementById('nube');
                 var selectedNube = conocerNube.options[conocerNube.selectedIndex].text;
+                conocerNube = selectedNube;
 
                 var aplicacionesContenerizadas = document.getElementById('aplicaciones');
                 var selectedAplicaciones = aplicacionesContenerizadas.options[aplicacionesContenerizadas.selectedIndex].text;
+                aplicacionesContenerizadas = selectedAplicaciones;
 
                 var ayudarModernizar = document.getElementById('modernizar');
                 var selectedModernizar = ayudarModernizar.options[ayudarModernizar.selectedIndex].text;
+                ayudarModernizar = selectedModernizar;
 
                 var plataformaContenedores = document.getElementById('plataforma').value;
 
                 var ayudaContacto = document.getElementById('ayuda');
                 var selectedAyuda = ayudaContacto.options[ayudaContacto.selectedIndex].text;
+                ayudaContacto = selectedAyuda;
                 
                 var promosIbm = document.getElementById('promos');
                 var selectedPromos = promosIbm.options[promosIbm.selectedIndex].text;
+                promosIbm = selectedPromos;
 
                 var http = new XMLHttpRequest();
-                var url = "localhost";
+                var url = "http://localhost:3000";
                 //var email = document.getElementById('email');
                 //var password = document.getElementById('pass');
-                http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
                 http.open("POST", url, true);
+                http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
 
                 http.onreadystatechange = function() {
                     if(http.readyState == 4 && http.status == 200) { 
@@ -105,11 +113,21 @@
                     alert(http.responseText);
                     }
                 }
-                http.send(JSON.stringify({nombre:nombre, 
-                                        password: password,
-                                        }));
 
-                console.log(selectedEvento);
+                http.send(JSON.stringify({nombre:nombre, 
+                                          telefono: telefono,
+                                          email: email,
+                                          parecerEvento: parecerEvento,
+                                          parecerSesion: parecerSesion,
+                                          conocerNube: conocerNube,
+                                          aplicacionesContenerizadas: aplicacionesContenerizadas,
+                                          ayudarModernizar: ayudarModernizar,
+                                          plataformaContenedores: plataformaContenedores,
+                                          ayudaContacto: ayudaContacto,
+                                          promosIbm: promosIbm
+                                        }));
+                console.log("Se mandaron los datos");
+                //console.log(selectedEvento);
             }
         </script>
     </head>
