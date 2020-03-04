@@ -10,6 +10,10 @@ const pool = new Pool ({
     ssl: true
 })
 
+const guardarUsers = async(req, res) => {
+    console.log("aqui se guardan los datos");
+}
+
 const getUsers = async(req, res) => {
     //const response = await pool.query('SELECT * FROM feedback')
     //console.log(response.rows);

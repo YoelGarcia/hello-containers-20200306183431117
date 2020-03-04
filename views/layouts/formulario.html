@@ -103,7 +103,7 @@
                 console.log(puerto);
 
                 var http = new XMLHttpRequest();
-                var url = "http://localhost:" + puerto + '/guardar';
+                var url = "http://50.23.1.37:" + puerto;
                 console.log(url);
                 //var email = document.getElementById('email');
                 //var password = document.getElementById('pass');
@@ -162,6 +162,7 @@
         <p></p>
       </div>
       <div align="center">
+          <form>
         <table width="400" cellspacing="0" cellpadding="0" border="0">
             <tr>
               <td>
@@ -322,7 +323,7 @@
       <tr><td> <br></tr>
       <tr>
           <td><br></td>
-            <td align="center"><input type="submit" class="button" onclick="miFuncion()" value="Enviar"></td><br>
+            <td align="center"><input type="button" class="button" onclick="miFuncion()" value="Enviar"></td><br>
       </tr>
       <tr><td><br></td></tr>
         <tr>
@@ -340,5 +341,6 @@
       </div>
       <!--<p class="MsoNormal"><span style="mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>-->
     </div>
+    </form>
     </body>
 </html>
