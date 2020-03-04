@@ -36,7 +36,7 @@ const createFeedback = async(req, res) => {
         plataformaContenedores, ayudaContacto, promosIbm
     ]);
     console.log(response);
-    //res.send("Usuario creado");
+    res.send("Usuario creado");
 };
 
 module.exports = {
