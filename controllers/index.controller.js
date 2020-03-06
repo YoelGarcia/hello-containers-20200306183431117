@@ -24,6 +24,13 @@ const getUsers = async(req, res) => {
     });
 }
 
+const llamarAsistente = async(req, res) => {
+    const puerto = port.Puerto;
+    res.render('../views/layouts/default.hbs', {
+        puerto: puerto
+    });
+}
+
 const createFeedback = async(req, res) => {
     console.log(req.body);
     const { nombre, telefono, email, parecerEvento,
@@ -41,5 +48,6 @@ const createFeedback = async(req, res) => {
 
 module.exports = {
     getUsers,
-    createFeedback
+    createFeedback,
+    llamarAsistente
 }
